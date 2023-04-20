@@ -24,7 +24,10 @@ def _darwin_apple_suffix(llvm_version, arch):
             else:
                 return "apple-darwin22.0"
         else:
-            return "apple-darwin21.0"
+            if major_llvm_version == 15 and patch_llvm_version == 0:
+                return "apple-darwin"
+            else:
+               return "apple-darwin21.0"
     else:
         return "apple-darwin"
 
